@@ -30,7 +30,7 @@ export default function EventItem({ title, image, date, location, id }) {
         </div>
         <div className={styles.actions}>
           <Button link={`/events/${id}`}>
-            <span>AddressIcon</span>
+            <span>Explore Event</span>
             <span className={styles.icon}>
               <ArrowRoghtIcon />
             </span>
