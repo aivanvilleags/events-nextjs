@@ -3,6 +3,7 @@ import { getEventById, getFeaturedEvents } from "../../helpers/api-util";
 import EventSummary from "../../components/event-detail/event-summary";
 import EventLogistics from "../../components/event-detail/event-logistics";
 import EventContent from "../../components/event-detail/event-content";
+import Comments from "../../components/input/comments";
 
 import Head from "next/head";
 
@@ -31,6 +32,7 @@ export default function EventPage({ event }) {
       <EventContent>
         <p>{event.description}</p>
       </EventContent>
+      <Comments />
     </>
   );
 }
