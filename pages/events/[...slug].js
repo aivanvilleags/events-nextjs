@@ -1,5 +1,6 @@
 import { useRouter } from "next/router";
 import { getFilteredEvents } from "../../helpers/api-util";
+import Head from "next/head";
 
 import EventsList from "../../components/events/event-list";
 import ResultsTitle from "../../components/events/results-title";
@@ -13,10 +14,20 @@ export default function FilteredEventsPage(props) {
   // if (!data) {
   //   return <p className="center">Loading ...</p>;
   // }
+  const HEAD = (
+    <Head>
+      <title>Filtered Events</title>
+      <meta
+        name="description"
+        content={`Events for ${props.date.month}/${props.date.year}`}
+      />
+    </Head>
+  );
 
   if (props.hasError) {
     return (
       <>
+        {HEAD}
         <ErrorAlert>
           <p>Invalid format</p>
         </ErrorAlert>
@@ -32,6 +43,7 @@ export default function FilteredEventsPage(props) {
   if (!filteredEvents || filteredEvents.length === 0) {
     return (
       <>
+        {HEAD}
         <ErrorAlert>
           <p>No events found</p>
         </ErrorAlert>
@@ -46,6 +58,7 @@ export default function FilteredEventsPage(props) {
 
   return (
     <>
+      {HEAD}
       <ResultsTitle date={date} />
       <EventsList items={filteredEvents} />
     </>
